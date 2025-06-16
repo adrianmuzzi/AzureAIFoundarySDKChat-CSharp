@@ -16,6 +16,8 @@ class Program {
     static void Main(string[] args) {
         try
         {
+            Console.WriteLine("This is a Test Commit");
+            
             //get config - config file in bim\debug\net9.0
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
             IConfigurationRoot configuration = builder.Build();
