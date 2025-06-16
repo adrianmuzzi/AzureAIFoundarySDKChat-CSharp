@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yT9MBhmA8SI=",
+  "dgSpecHash": "ZV1U7tFZspg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adrian\\Documents\\PersonalDevelopment\\AzureAIFoundarySDKChat\\AzureAIFoundarySDKChat.csproj",
+  "projectFilePath": "C:\\Users\\Adrian\\Documents\\PersonalDev-Github\\AzureAIFoundarySDKChat-CSharp\\AzureAIFoundarySDKChat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adrian\\.nuget\\packages\\azure.ai.agents.persistent\\1.0.0\\azure.ai.agents.persistent.1.0.0.nupkg.sha512",
     "C:\\Users\\Adrian\\.nuget\\packages\\azure.ai.inference\\1.0.0-beta.4\\azure.ai.inference.1.0.0-beta.4.nupkg.sha512",

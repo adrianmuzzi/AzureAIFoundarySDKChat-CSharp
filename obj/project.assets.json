@@ -1435,11 +1435,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adrian\\Documents\\PersonalDevelopment\\AzureAIFoundarySDKChat\\AzureAIFoundarySDKChat.csproj",
+      "projectUniqueName": "C:\\Users\\Adrian\\Documents\\PersonalDev-Github\\AzureAIFoundarySDKChat-CSharp\\AzureAIFoundarySDKChat.csproj",
       "projectName": "AzureAIFoundarySDKChat",
-      "projectPath": "C:\\Users\\Adrian\\Documents\\PersonalDevelopment\\AzureAIFoundarySDKChat\\AzureAIFoundarySDKChat.csproj",
+      "projectPath": "C:\\Users\\Adrian\\Documents\\PersonalDev-Github\\AzureAIFoundarySDKChat-CSharp\\AzureAIFoundarySDKChat.csproj",
       "packagesPath": "C:\\Users\\Adrian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adrian\\Documents\\PersonalDevelopment\\AzureAIFoundarySDKChat\\obj\\",
+      "outputPath": "C:\\Users\\Adrian\\Documents\\PersonalDev-Github\\AzureAIFoundarySDKChat-CSharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Adrian\\AppData\\Roaming\\NuGet\\NuGet.Config"
