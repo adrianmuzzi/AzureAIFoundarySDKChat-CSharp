@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Extensions.Configuration;
 //run 'dotnet add package Microsoft.Extensions.Configuration.Json' to add the configuration package
 using Azure;
@@ -25,47 +24,59 @@ class Program {
             var projectClient = new AIProjectClient(new Uri(projectEndpoint), new DefaultAzureCredential());
             //DefaultAzureCredential will use the Azure CLI credentials or environment variables - connect with 'az login' or set AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_CLIENT_SECRET environment variable
             //https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli
-
-            /*
-            //list all project connections
-            Console.WriteLine("Listing all project connections:");
+            
+            // List all project connections if any exist
+            Console.WriteLine("Checking for project connections...");
             var connectionsClient = projectClient.GetConnectionsClient();
-            foreach (var connection in connectionsClient.GetConnections()) {
-                Console.WriteLine($"Connection ID: {connection.Id}, Name: {connection.Name}");
-            }
-            */
+            var connections = connectionsClient.GetConnections().ToList();
 
-            //get a chat client
-            ChatCompletionsClient chat = projectClient.GetChatCompletionsClient();
+            if (connections.Any()) {
+                Console.WriteLine("Listing all project connections:");
+                foreach (var connection in connections) {
+                    Console.WriteLine($"Connection ID: {connection.Id}, Name: {connection.Name}");
+                }
+            } else {
+                Console.WriteLine("No project connections found.");
+            }
 
             //reference deployment name
             string modelDeployment = configuration["MODEL_DEPLOYMENT"];
 
-            //provide system prompt
-            var prompt = new List<ChatRequestMessage>()
-            {
+            //get a chat client
+            ChatCompletionsClient chat = projectClient.GetChatCompletionsClient();
+
+            //provide intial prompt. Contributes to token count
+            var prompt = new List<ChatRequestMessage>() {
                 new ChatRequestSystemMessage("You are a helpful assistant that provides information about Azure AI services.")
             };
 
-            Console.WriteLine("Chat (or 'quit'):");
+            //initialize chat
+            Console.WriteLine($"{Environment.NewLine}Say hello! (or 'quit'):");
             string? userInput;
             userInput = Console.ReadLine();
 
+            //enter chat loop
             while (userInput != null && userInput.ToLower() != "quit")
             {
-                //get a chat completion
+                //add user input to the prompt
                 prompt.Add(new ChatRequestUserMessage(userInput));
+                //specify chat completion options (model to query, messages to use)
                 var requestOptions = new ChatCompletionsOptions()
                 {
                     Messages = prompt,
                     Model = modelDeployment,
                 };
 
+                //pass chat completion options to the chat client, request a chat completion
                 Response<ChatCompletions> response = chat.Complete(requestOptions);
+
+                //capture completion response and write to console
                 var completion = response.Value.Content;
                 Console.WriteLine(completion);
+
+                //add completion to prompt for context in next request -  helps maintain context in the conversation
                 prompt.Add(new ChatRequestAssistantMessage(completion));
-                
+
                 //get next user input
                 userInput = Console.ReadLine();
             }
