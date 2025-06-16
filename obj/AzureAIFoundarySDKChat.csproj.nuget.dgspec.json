@@ -44,10 +44,6 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Azure.AI.Agents.Persistent": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Azure.AI.Projects": {
               "target": "Package",
               "version": "[1.0.0-beta.9, )"

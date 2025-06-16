@@ -6,8 +6,6 @@ using Azure;
 using Azure.Identity;
 //run 'dotnet add package Azure.AI.Projects --prerelease' to add the Azure AI Projects SDK
 using Azure.AI.Projects;
-//run 'dotnet add package Azure.AI.Agents.Persistent' to add the Azure AI Agents Persistent SDK
-using Azure.AI.Agents.Persistent;
 //run 'dotnet add package Azure.AI.Inference' to add the Azure AI Inference SDK
 using Azure.AI.Inference;
 
@@ -16,7 +14,7 @@ class Program {
     static void Main(string[] args) {
         try
         {
-            Console.WriteLine("This is a Test Commit");
+            Console.WriteLine("Azure AI Chat Client | gpt-4o | Azure AI Projects SDK");
             
             //get config - config file in bim\debug\net9.0
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -53,7 +51,8 @@ class Program {
             string? userInput;
             userInput = Console.ReadLine();
 
-            while (userInput != null && userInput.ToLower() != "quit") {
+            while (userInput != null && userInput.ToLower() != "quit")
+            {
                 //get a chat completion
                 prompt.Add(new ChatRequestUserMessage(userInput));
                 var requestOptions = new ChatCompletionsOptions()
@@ -66,6 +65,9 @@ class Program {
                 var completion = response.Value.Content;
                 Console.WriteLine(completion);
                 prompt.Add(new ChatRequestAssistantMessage(completion));
+                
+                //get next user input
+                userInput = Console.ReadLine();
             }
         } catch (Exception ex) {
             Console.WriteLine($"Error initializing project client: {ex.Message}");

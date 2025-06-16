@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzureAIFoundarySDKChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03f54aefa9bc1b971fcac3a7fcb3bdc275e0dac3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8f6b198a428b01266e734b2fb111019dfd3db5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AzureAIFoundarySDKChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureAIFoundarySDKChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
