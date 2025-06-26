@@ -26,8 +26,8 @@ User input is sent to Azure AI, and the response is printed to the terminal.
 
 ```
 .
-├── AIChat.cs       # Main chat logic
-├── AzureAIFoundarySDKChat-CSharp.sln          # C# Solution file
+├── AIChat.cs                                    # Main chat logic
+├── AzureAIFoundarySDKChat-CSharp.sln            # C# Solution file
 ├── AzureAIFoundarySDKChat-CSharp.csproj         # C# Project file
 └── README.md
 ```
