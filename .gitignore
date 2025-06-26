@@ -22,5 +22,5 @@ out/
 *.tmp
 
 # Secrets
-bin\Debug\net9.0\appsettings.json
+bin/Debug/net9.0/appsettings.json
 *.key
